@@ -1,0 +1,49 @@
+package com.tedu.Login;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Scanner;
+
+import cm.tedu.util.JdcbUtil;
+
+//这个类用来测试用户登录
+public class LoginUSer {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		System.out.println("请登录");
+		String user = sc.nextLine();
+		System.out.println("请输入密码");
+		String pwd = sc.nextLine();
+		login(user,pwd);
+		
+	}
+
+	private static void login(String user, String pwd) {
+		// TODO Auto-generated method stub
+		Connection conn=null;
+		Statement stat=null;
+		ResultSet rs=null;
+		try {
+			conn = JdcbUtil.getConn();
+			stat = conn.createStatement();
+			String sql = "select * from user where username='"+user+"' and password='"+pwd+"'";
+			System.out.println(sql);
+			rs = stat.executeQuery(sql);
+			if (rs.next()) {
+				System.out.println("登录成功");
+			}else {
+				System.out.println("登录失败，用户名或密码错误！");
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JdcbUtil.close(conn, stat, rs);
+		}
+		
+	}
+
+}

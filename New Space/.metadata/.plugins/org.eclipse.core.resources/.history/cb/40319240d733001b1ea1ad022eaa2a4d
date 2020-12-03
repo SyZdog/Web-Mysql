@@ -1,0 +1,42 @@
+package com.tedu;
+
+import java.sql.SQLException;
+
+public class JdcbUtil {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		if(rs != null) {
+			
+			try {
+				rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				rs = null;
+			}
+		}
+		if (state != null) {
+			try {
+				state.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				state = null;
+			}
+		}
+		if (conn != null) {
+			
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				conn = null;
+			}
+	}
+
+}

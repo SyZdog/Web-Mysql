@@ -1,0 +1,45 @@
+package com.tedu;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+import org.junit.Test;
+
+import cm.tedu.util.JdcbUtil;
+
+public class TestCRUD {
+	//新增
+		@Test
+		public void testInsert() {
+			Connection conn = null;
+			Statement state =null;
+			ResultSet rs=null;
+			try {
+				//加载驱动
+				Class.forName("com.mysql.cj.jdbc.Driver");
+				//获取连接
+				conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/jt_db?characterEncoding=utf-8&serverTimezone=UTC", "root", "root");
+				//获取传输器
+				state = conn.createStatement();
+				//发送sql到服务器执行，并返回结果
+				String sql = "insert into account values(null,'tom',3900)";
+				int rows = state.executeUpdate(sql);
+				System.out.println("影响行数"+rows);
+				//处理结果
+				//资源释放
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				JdcbUtil.close(conn,state,rs);
+			}
+		}
+		@Test
+		public void testUpdate(){
+			
+		}
+	}
+
+
