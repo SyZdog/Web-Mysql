@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>图像和超链接网页</title>
+</head>
+<body>
+	<img src="imgs/meinv.jpg" width = "50%" border = "10px"/>
+	<hr/>
+	<a href = "http://www.baidu.com" target= "_blank">百度一下</a>
+	
+</body>
+</html>
