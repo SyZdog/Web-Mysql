@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+	<script type="text/javascript">
+		/*案例1：if分支案例
+			例子: 接收用户输入的成绩，判断成绩所属的等级
+			80~100(包括80，也包括100)		优秀 
+			60~80(包括60，但不包括80)		中等
+			0~60(包括0，但不包括60)		不及格
+			其他值							输入有误
+		*/
+		/*
+		//通过prompt()接收用户输入的值
+		var score = prompt("请输入您的成绩：")
+		//可以在浏览器的控制台去打印用户输入的值
+		console.log(score)
+		if(score >= 80 && score <= 100){
+			alert("您的成绩属于：优秀！")
+		}else if(score >= 60 && score <= 80){
+			alert("您的成绩属于：中等！")
+		}else if(score >= 0 && score < 60){
+			alert("您的成绩属于：不及格！")
+		}else{
+			alert("您输入的成绩不合法，请重新输入！")
+		}*/
+		var s = promt("请输入数值1、运算符、数值2，中间用空格分隔")
+		// "100,+,5"	
+		console.log(s)
+		var arr  = s.split(" ")
+		var num1 = parseFloat(arr[0])
+		var opt = arr[1]
+		var num2 = parseFloat(arr[2])
+		switch(opt){
+		case "+" : alert("两个数的和为："+ (num1+num2))
+		break
+		case "-" : alert("两个数的差为："+ (num1-num2))
+		break
+		case "*" : alert("两个数的乘积为："+ (num1*num2))
+		break
+		case "/" : alert("两个数的商为："+ (num1/num2))
+		break
+		default:
+			alert("您输入的运算符不合法！")
+		
+		}
+		
+	</script>
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+</html>
