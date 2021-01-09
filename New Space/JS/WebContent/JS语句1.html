@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 	<script type="text/javascript">
-		/*案例1：if分支案例
+		/*if分支案例
 			例子: 接收用户输入的成绩，判断成绩所属的等级
 			80~100(包括80，也包括100)		优秀 
 			60~80(包括60，但不包括80)		中等
@@ -24,7 +24,8 @@
 		}else{
 			alert("您输入的成绩不合法，请重新输入！")
 		}*/
-		var s = promt("请输入数值1、运算符、数值2，中间用空格分隔")
+		/*
+		var s = prompt("请输入数值1、运算符、数值2，中间用空格分隔")
 		// "100,+,5"	
 		console.log(s)
 		var arr  = s.split(" ")
@@ -38,13 +39,41 @@
 		break
 		case "*" : alert("两个数的乘积为："+ (num1*num2))
 		break
-		case "/" : alert("两个数的商为："+ (num1/num2))
 		break
 		default:
 			alert("您输入的运算符不合法！")
-		
+		}*/
+		/*
+		for循环语句案例
+遍历1~100之间的所有整数，求1~100之间所有整数的和，并输出到控制台;
+		*/
+		var sum1 = 0
+		for(var i = 1 ; i <= 100; i++){
+			sum1 += i
 		}
+		// consol.log("1~100之间所有的和为"+ sum1)
+		alert("1~100之间所有的和为"+ sum1)
+		var i = 1, sum2 = 0
+		while(i <= 100){
+			sum2 += i
+			i++
+		}
+		alert("1~100之间所有的和为"+ sum2)
 		
+		/*
+		while循环语句案例遍历下面数组中的元素，将元素输出到控制台。
+		*/
+		var arr = [123, "abc", false, new Object() ];
+		for(var i = 0 ; i < arr.length; i++){
+			console.log(arr[i])
+			alert(arr[i])
+		}
+		var i = 0
+		while(i < arr.length){
+			console.log(arr[i])
+			alert(arr[i])
+			i++
+		}
 	</script>
 <title>Insert title here</title>
 </head>

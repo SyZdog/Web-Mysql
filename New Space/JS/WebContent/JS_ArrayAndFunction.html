@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript">
+	var arr1 = []
+	console.log(arr1.length)
+	arr1.length = 10
+	console.log(arr1.length)
+	arr1[99] = "abc"
+	console.log(arr1.length)
+	arr1.length = 0
+	console.log(arr1.length)
+	var arr = [123, "abc", false, new Object() ];
+	//2.JS声明函数的方式
+	//方式1：
+	function getSum(a,b){
+		return a+b
+	}
+	var sum = getSum(12,34)
+	console.log(sum)
+	//方式2：
+	var s = function(m,n){
+		console.log(m+n);
+	}
+	s(3,9)
+	//方式3
+	var ji = (function(i,j){
+		console.log(i*j)
+	})(4,9)
+	console.log(ji)
+</script>
+</head>
+<body>
+
+</body>
+</html>

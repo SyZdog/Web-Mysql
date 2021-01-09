@@ -3,33 +3,83 @@
 <head>
 <meta charset="UTF-8">
 <title>京淘注册页面</title>
-<!-- 引入regist.css样式表文件 -->
-<link rel="stylesheet" href="regist.css">
+<!-- 引入regist.css文件 -->
+<link rel="stylesheet" href="regist.css"/>
 </head>
 <body>
-<!-- 头部（header） -->
 	<!-- 头部(header) -->
-	<div id="header">
-		<div id="line1"><!-- 头部的第1行 -->
+	<div id = "header"> 
+		<div id = "line1"><!-- 头部的第1行 -->
 			<img src="imgs/logo_jt.jpg"/>
-			<span class="line"></span>
-			<span class="wel-reg">欢迎注册</span>
+			<span class = "line"></span>
+			<span class = "wel-reg">欢迎注册</span>
 		</div>
-		<div id="line2"><!-- 头部的第2行 -->
-			<span>已有账号?</span>
+		<div id = "line2"><!-- 头部的第2行 -->
+			<span >已有账号？</span>
 			<a href="#">请登录</a>
 		</div>
 	</div>
-<!-- 主体（middle） -->
-	<div id ="middle">
-		<img action="#">
+	<!-- 主体(middle) -->
+	<div id = "middle">
+		<form action="#"><!--注册表单-->
 			<table>
+				<tr><!-- 用户名 -->
+					<td>
+						<input type = "text" name = "username" placeholder= "用户名"/>
+					</td>
+				</tr>
+				<tr><!--提示信息-->
+					<td class="msg">
+					支持中文、字母、数字、“-”、“_”的组合，4-20个字符</td>
+				</tr>
+				<tr><!-- 设置密码 -->
+					<td>
+						<input type = "password" name = "pwd" placeholder= "设置密码"/>
+					</td>
+				</tr>
+				<tr><!--提示信息-->
+					<td class="msg">
+					建议使用数字、字母和符号两种以上的组合，6-20个字符</td>
+				</tr>
+				<tr><!-- 确认密码 -->
+					<td class = "yzsj">
+						<input type = "password" name = "repwd" placeholder= "确认密码"/>
+						&nbsp;<span>或</span>&nbsp;
+						<a href = '#'>验证邮箱</a>
+					</td>
+				</tr>
+				<tr><!--提示信息-->
+					<td class="msg alert">
+					两次密码输入不一致</td>
+				</tr>
+				<tr><!-- 验证手机 -->
+					<td>
+						<input type = "text" name = "phone" placeholder= "验证手机"/>
+					</td>
+				</tr>
+				<tr><!--同意注册协议-->
+					<td class = "protocol">
+						<span>我已经阅读并同意 </span>
+						<a href = "#">《京淘用户注册协议》</a>
+					</td>
+
+				</tr>
 				<tr>
-					<input type="text" name="username" place>
+					<td>
+						<input type = "submit" value = "立即注册"/>
+					</td>
 				</tr>
 			</table>
+		</form>
+		<img src="imgs/msg.jpg"/><!--手机快速注册-->
 	</div>
-<!-- 尾部（footer） -->
-<div></div>
+	<!-- 尾部(footer) -->
+	<div id = "footer">
+		<p>	
+			关于我们 | 联系我们 | 人才招聘 | 商家入驻 | 营销中心 | 手机京淘 | 友情连接 | 销售联盟 | 京淘社区 | 京淘公益 | English Site
+			<br/>
+			Copyright © 2015 - 2019 京淘jingtao.com 版权所有
+		</p>
+	</div>
 </body>
 </html>

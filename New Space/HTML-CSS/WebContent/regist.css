@@ -1,47 +1,155 @@
 @charset "UTF-8";
-/* 头部(header) */
+/*头部(header)*/
 #header{
-	/* background:pink; */
-	width: 1200px;
-	/* 设置当前元素在水平方向居中显示 */
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 41px; /* 设置上外边距 */
-	height: 114px; /* 设置元素的高度 */
+	width:1200px;
+	height:114px;
+	/*background-color:pink;*/
+	/*设置当前元素在水平方向居中*/
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:41px;
 }
-#line1{ /* 头部的第1行 */
-	height: 72px;
+#line1{/*头部的第1行*/
+	height:72px;
 }
-#line1 img{ /* logo图片 */
-	margin-left: 50px;
-	margin-right: 33px;
-	vertical-align: middle; /* 设置元素的中线对齐 */
+#line1 img{/*logo图片*/
+	margin-left:50px;
+	margin-right:33px;
+	/*让其他行内元素的中线对齐*/
+	vertical-align:middle;
 }
-#line1 .line{ /* 竖线 */
-	border: 2px solid #676767;
-	height: 68px;
-	/* 设置当前元素为行内块元素 */
-	display: inline-block;
-	margin-right: 23px; 
-	background: #676767;
-	vertical-align: middle; /* 设置元素的中线对齐 */
+#line1 .line{/*竖线*/
+	border:2px solid #676767;
+	height:68px;
+	/*将span元素设置为行内块元素*/
+	display:inline-block;
+	background:#676767;
+	margin-right:23px;
+	/*让其他行内元素的中线对齐*/
+	vertical-align:middle;
 }
-#line1 .wel-reg{ /* 欢迎注册 */
-	font-size: 36px;
-	color: #676767;
-	vertical-align: middle; /* 设置元素的中线对齐 */
+#line1 .wel-reg{/*欢迎注册*/
+	font-size:36px;
+	color:#676767;
+	/*让其他行内元素的中线对齐*/
+	vertical-align:middle;
 }
-#line2{ /* 头部的第2行 */
-	height: 42px;
-	text-align: right; /* 设置元素内容居右 */
+#line2{/*头部的第2行*/
+	height:42px;
+	/*居右显示*/
+	text-align:right;
 }
-#line2  span{ /* 已有账号 */
-	color: #999;
-	font-size: 24px;
+#line2 span{/*已有账号*/
+	font-size:24px;
+	color:#999;/*AABBCC*/
+	
 }
-#line2  a{ /* 请登录 */
-	color: #333;
-	/* 设置元素中的文本没有下划线 */
-	text-decoration: none;
-	font-size: 24px;
+#line2 a{
+	font-size:24px;
+	color:#333;
+	/*设置文本没有下划线*/
+	text-decoration:none;
+}
+/*主体(middle)*/
+#middle{
+	width:1200px;
+	height:545px;
+	/*background-color:yellow;*/
+	/*水平居中*/
+	margin:0px auto;
+	/*上内边距*/
+	padding-top:75px;
+	border:7px solid #d0d0d0;
+	border-top-width:9px;/*上边框*/
+	border-bottom-width:9px;/*下边框*/
+}
+#middle form{/*表单*/
+	/*background-color:#f7eeef;*/
+	width:819px;
+	margin-left:109px;
+	height:545px;
+	/*设置元素为行内块元素，可以和其他元素显示在同一行*/
+	display:inline-block;
+}
+#middle img{/*快速注册*/
+	/*设置当前元素的顶部和行内最高元素的顶部对齐*/
+	vertical-align:top;
+	
+}
+/*选中表单中的所有input元素*/
+#middle form table tr input{
+	width:381px;
+	height:50px;
+	font-size:16px;
+	color:#999;
+	text-indent:45px;
+	border:1px solid #d0d0d0;
+}
+/*用户名输入框*/
+#middle form table input[name = 'username']{
+	background:url(imgs/u_ico.jpg) no-repeat 15px 15px;
+}
+/*选中输入框下面的提示消息*/
+#middle form table .msg{
+	height:32px;
+	font-size:12px;
+	text-indent:45px;
+	color:#c3c3c3;
+	background: url(imgs/alert_1.jpg) no-repeat 17px 7px;
+}
+/*选中密码和确认密码输入框*/
+#middle form table input[type = 'password']{
+	background:url(imgs/p_ico.jpg) no-repeat 15px 15px;
+}
+/*警告消息*/
+#middle form table .alert{
+	color:#e64346;
+	background:url(imgs/alert_2.jpg) no-repeat 17px 7px;
+}
+/*验证手机*/
+#middle form table input[name = 'phone']{
+	background:url(imgs/phone_ico.jpg) no-repeat 15px 15px;
+}
+#middle form table td .yzsj span{/*或*/
+	font-size:16px;
+}
+#middle form table td .yzsj a{/*验证手机*/
+	font-size:16px;
+	color:#005ea7;
+}
+#middle form table .protocol{/*同意协议td元素*/
+	height:83px;
+	font-size:16px;
+	line-height:52px;
+	text-indent:60px;
+}
+
+#middle form table .protocol a{/*注册协议*/
+	color:#005ea7;
+	text-decoration:none;
+}
+/*立即注册按钮*/
+#middle form table input[type = 'submit']{
+	background:#e64346;
+	color:#fff;
+	font-size:20px;
+	/*覆盖上面设置的首行缩进*/
+	text-indent:0px;
+	
+}
+/*尾部(footer)*/
+#footer{
+	width:1200px;
+	/*height:100px;*/
+	/*background-color:cyan;*/
+	/*水平居中*/
+	margin:0px auto;
+	/*上外边距*/
+	margin-top:109px;
+}
+#footer p{
+	text-align:center;
+	font-size:14px;
+	line-height:34px;
+	color:#999;
 }

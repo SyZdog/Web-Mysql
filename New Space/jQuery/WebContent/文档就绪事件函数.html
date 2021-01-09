@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>就绪事件函数</title>
+	<script src="js/jquery-1.8.3.js">
+	/*这个是JS提供的文档就绪事件函数*/
+	/*文档就绪事件函数是在浏览器加载完整个HTML后立即执行的一种函数
+		window.onload = function(){
+		//1.获取id为demo的h1元素
+		var oH1 = document.getElementById("demo")
+		//2.获取h1元素中的内容
+		alert(oH1.innerHTML)
+		}*/
+		/*使用jQuery提供的文档就绪事件函数*/
+		$(function(){
+			//1.获取id为demo的h1元素
+			var oH1 = document.getElementById("demo")
+			//2.获取h1元素中的内容
+			alert(oH1.innerHTML)
+		})
+	</script>
+</head>
+<body>
+	<h1 id = "demo">演示文档就绪事件函数......</h1>
+</body>
+</html>
