@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+	<!-- 不同的mapper文件中的namespace必须保证唯一
+	namespace一般指定为当前文件的所在包路径+文件名
+	将来在程序中通过[ namespace + id ]定位到执行哪一条SQL语句
+ -->
+	
+<mapper namespace="EmpMapper">
+	<!-- 通过select、insert、update、delete标签声明要执行的SQL -->
+	<!-- id用于指定一个唯一的编号，要求id值在当前文件中不能重复 -->
+	<!-- resultType用于指定一个类型，用该类型封装sql语句查询结果 -->
+	<select id="findAll" resultType="com.tedu.pojo.Emp">
+		select * from emp
+	</select>
+	<!-- 
+	resultType：返回值类型，简单类型（例如：Integer，String，Emp等）
+		如果返回集合(List<Emp>)，只需配置集合中的元素类型即可！
+	resultMap：复杂对象结构（例如多表关联查询等），后面用到再讲解
+	 -->
+	 <!-- 新增一条语句 -->
+	 <update id="insert">
+	 	insert into emp value(null,'刘德华','歌手',888);
+	 </update>
+	 <!-- 修改员工信息 -->
+	 <update id="update">
+	 	update emp set job = '演员',salary = 88888 where name = '刘德华'
+	 </update>
+	 <!-- 删除员工信息 -->
+	 <update id="delete">
+	 	delete from emp where name = '刘德华'
+	 </update>
+	 <!-- 根据id来查询员工信息 -->
+	 <select id = "findById" resultType="com.tedu.pojo.Emp">
+	 	select * from emp where id=#{id}
+	 </select>
+	 <!-- 新增一条语句 -->
+	 <update id="insert2">
+	 	insert into emp value(null,#{name},#{job},#{salary})
+	 </update>
+	 <!-- 修改员工信息：张飞 架构师 25000 -->
+	 <update id="update2">
+	 	update emp set job = #{job},salary = #{salary} where name = #{name}
+	 </update>
+	 <!-- 查询指定列的数据 -->
+	 <select id = "findAll2" resultType = "com.tedu.pojo.Emp">
+	 	<!--如果使用#{} -> select 'name,job' from emp -->
+	 	<!--如果使用￥{} -> select name,job from emp -->
+	 	select ${cols} from emp;
+	 </select>
+	 <!-- 根据name模糊查询表记录emp表记录(${}) 刘-->
+	 <select id="findAll3" resultType = "com.tedu.pojo.Emp">
+	 	select * from emp where name like '%${name}%';
+	 </select>
+	  <!-- 根据name模糊查询表记录emp表记录(#{}) 刘-->
+	 <select id="findAll4" resultType = "com.tedu.pojo.Emp">
+	 	select * from emp where name like #{name};
+	 </select>
+	 <!-- 练习12.1: 根据薪资查询员工信息
+ 		* 练习12: 根据薪资查询员工信息
+ 		* 如果参数有 minSal、maxSal, 则
+ 		* ... where salary > minSal and salary < maxSal
+ 		* 如果参数中只有minSal, 则
+ 		* ... where salary > minSal 
+ 		* 如果参数中只有maxSal, 则
+ 		* ... where salary < maxSal
+ 		* 如果没有参数, 则不执行where子句, 默认查询所有员工 -->
+	 <select id="findAllBySal" resultType="com.tedu.pojo.Emp">
+		select * from emp where	1=1
+		<if test="minSal != null">
+			and salary >= #{minSal}
+		</if>
+		<if test="maxSal != null">
+			and salary &lt;= #{maxSal} 
+		</if>
+	</select>
+	<select id="findAllBySal2" resultType="com.tedu.pojo.Emp">
+		select * from emp
+		<where>
+		<if test="minSal != null">
+			and salary >= #{minSal}
+		</if>
+		<if test="maxSal != null">
+			and salary &lt;= #{maxSal} 
+		</if>
+		</where>
+</select>
+	<!-- 根据员工的id批量删除员工信息
+	delete from emp where id in(1,3,5,7)
+	 -->
+	<update id = "deleteByIds">
+	 	delete from emp where id in 
+	 	<foreach collection = "array" open="(" item="id" separator="," close=")" >
+	 		#{id}
+	 	</foreach>
+	</update>	
+	<!-- 根据员工的id批量更新员工信息，将id为2，4，6，8的员工薪资
+	在原有基础上增加1000 
+		update emp set salary = salary+1000 where id in(2,4,6,8);
+	-->
+	<update id = "updateByIds">
+		update emp set salary = salary + #{sal} where id in
+		<foreach collection = "arrIds" open = "(" item = "id" separator="," close=")">
+			#{id}
+		</foreach>
+	</update>
+</mapper>
