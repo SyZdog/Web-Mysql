@@ -7,5 +7,16 @@
 	<select id="findAll" resultType="com.tedu.pojo.Emp">
 		select * from emp
 	</select>
-	
+	<!-- 新增 -->
+	<update id = "insert">
+		insert into emp value(null,#{name},#{job},#{salary});
+	</update>
+	<!-- 修改 -->
+	<update id = "update">
+		update from emp set job=#{job},salary=#{salary} where name=#{name};
+	</update>
+	<!-- 删除 -->
+	<update id = "delete">
+		delete from emp where id=#{id};
+	</update>
 </mapper>

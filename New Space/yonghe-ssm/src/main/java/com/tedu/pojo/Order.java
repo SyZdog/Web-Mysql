@@ -2,22 +2,20 @@ package com.tedu.pojo;
 
 import java.util.Date;
 
-/**
- * 订单信息类, 用于封装订单信息
- */
+//用于封装订单信息的实体类
 public class Order {
-	//1.声明属性
-	private Integer id;		//id
-	private Integer doorId;	//door_id
-	private String orderNo; //order_no
-	private String orderType;//order_type
-	private Integer pnum;	//pnum
-	private String cashier;	//carshier
-	private Date orderTime;	//order_time
-	private Date payTime;	//pay_time
-	private String payType;	//pay_type
-	private Double price;	//price
-	//2.提供getter和setter方法
+
+	private Integer id;	//订单id
+	private Integer doorId;	//门店编号
+	private String orderNo;	//订单编号
+	private String orderType;	//订单类型
+	private Integer pnum;	//用餐人数
+	private String cashier;	//收银员
+	private Date orderTime;	//下单时间
+	private Date payTime;	//结账时间
+	private String payType;	//支付方式
+	private double price;	//支付金额
+	//get & set
 	public Integer getId() {
 		return id;
 	}
@@ -72,17 +70,20 @@ public class Order {
 	public void setPayType(String payType) {
 		this.payType = payType;
 	}
-	public Double getPrice() {
+	public double getPrice() {
 		return price;
 	}
-	public void setPrice(Double price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
-	//3.重写toString
+	//重新toString
 	@Override
 	public String toString() {
 		return "Order [id=" + id + ", doorId=" + doorId + ", orderNo=" + orderNo + ", orderType=" + orderType
 				+ ", pnum=" + pnum + ", cashier=" + cashier + ", orderTime=" + orderTime + ", payTime=" + payTime
 				+ ", payType=" + payType + ", price=" + price + "]";
 	}
+
+
+
 }

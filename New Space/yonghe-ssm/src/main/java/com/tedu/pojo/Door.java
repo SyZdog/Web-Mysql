@@ -1,17 +1,18 @@
 package com.tedu.pojo;
 
-/**
- * POJO(实体类)
- * 用于封装所有的门店信息
- */
 public class Door {
-	private Integer id;	//门店id
-	private String name;//门店名称
-	private String tel;//联系方式
-	private String addr;//门店地址
-	
-	
-	//声明getter和setter方法
+	private Integer id;	//门店编号
+	private String name;	//门店名称
+	private String tel;	//门店电话
+	private String addr;	//门店地址
+	public Door(){}
+	public Door(Integer id, String name, String tel, String addr) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.tel = tel;
+		this.addr = addr;
+	}
 	public Integer getId() {
 		return id;
 	}
@@ -36,16 +37,8 @@ public class Door {
 	public void setAddr(String addr) {
 		this.addr = addr;
 	}
-	//重写toString方法
 	@Override
 	public String toString() {
-		return "Door [id=" + id + ", name=" 
-				+ name + ", tel=" + tel 
-				+ ", addr=" + addr + "]";
+		return "Door [id=" + id + ", name=" + name + ", tel=" + tel + ", addr=" + addr + "]";
 	}
-	
-	
 }
-
-
-

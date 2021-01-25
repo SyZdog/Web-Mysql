@@ -45,5 +45,35 @@ public class TestMybatis04 {
 			System.out.println(emp);
 		}
 	}
-	
+	//新增员工信息
+	@Test
+	public void insert() {
+		Map map = new HashMap();
+		map.put("name", "赵云");
+		map.put("job", "保安");
+		map.put("salary", 9000.0);
+		EmpMapper mapper = session.getMapper(EmpMapper.class);
+		int rows = mapper.insert(map);
+		System.out.println("影响行数为："+rows);
+	}
+	//修改员工信息
+	@Test
+	public void testUpdate() {
+		Emp emp = new Emp();
+		emp.setName("赵云");
+		emp.setJob("保镖");
+		emp.setSalary(29000.0);
+		EmpMapper mapper = session.getMapper(EmpMapper.class);
+		int rows = mapper.update(emp);
+		System.out.println("影响行数为："+rows);
+	}
+	//删除id 为2的员工信息
+	@Test
+	public void testDelete() {
+		Integer id = 40;
+		EmpMapper mapper = session.getMapper(EmpMapper.class);
+		int rows = mapper.delete(id);
+		System.out.println("影响行数为："+rows);
+		
+	}
 }

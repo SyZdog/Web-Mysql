@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- 将EmpService接口子类声明到spring容器中，让spring容器创建该类的实例 -->
+	<bean id="empService" class="com.tedu.service.EmpServiceImpl"></bean>
+	<!-- 将EmpDao接口子类声明到spring容器中，让spring容器创建该类的实例 -->
+	<bean id="empDao" class="com.tedu.dao.EmpDaoImpl"></bean>
+	<!-- 将User类声明到spring容器中，让spring容器创建该类的实例 -->
+	<!-- 如果是scope="singleton" ,那就是spring容器中这个类所对应的实例是单实例
+		如果是scope="prototype" ,那就是spring容器中这个类所对应的实例是多实例
+	-->
+	<bean id="user" scope="prototype" class="com.tedu.pojo.User">
+	<!-- 通过set方法为User对象的属性赋值
+		name~~~~~~~setName（“韩少云”）
+		age~~~~~~~setAge(30)
+	 
+		<property name="name" value="韩少云"/>
+		<property name="age" value="30"/>
+		<property name="info" ref="userinfo"/>-->
+		<!-- 通过构造方法为user对象的属性赋值 
+			name属性指定的值和User类中那个的全参构造函数上的形参的名字要保持一致
+		-->
+		<constructor-arg name="name" value="马云" />
+		<constructor-arg name="age" value="35" />
+		<constructor-arg name="info" ref="userinfo" />
+	</bean>
+	<!-- 将Person类声明到spring容器中，让spring容器创建该类的实例 -->
+	<bean id="person" class="com.tedu.pojo.Person"></bean>
+	<!-- 将UserInfo类声明到spring容器中，让spring容器创建该类的实例 -->
+	<bean id="userinfo" class="com.tedu.pojo.UserInfo"></bean>
+</beans>

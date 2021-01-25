@@ -5,37 +5,15 @@ import java.util.List;
 import com.tedu.pojo.Order;
 
 public interface OrderMapper {
-	/**
-	 * 1.查询所有订单信息
-	 * @return
-	 */
-	List<Order> findAll();
-	/**
-	 * 2.根据id删除订单信息
-	 * @param id
-	 */
-	void deleteById(Integer id);
-	
-	/**
-	 * 3.添加订单信息
-	 * @param order
-	 */
-	void addOrder(Order order);
-	
-	/**
-	 * 4.1.根据id查询订单信息
-	 * @param id
-	 * @return
-	 */
-	Order findById(Integer id);
-	/**
-	 * 4.2.根据id修改订单信息
-	 * @param order
-	 */
-	void updateById(Order order);
-	
+	//查询订单表中的所有信息
+	public List<Order> findAll();
+	//根据ID删除订单信息
+	public void deleteById(Integer id);
+	//新增订单信息
+	public void add(Order order);
+	//根据ID查询订单信息
+	public Order findById(Integer id);
+	//根据ID修改订单信息
+	public void updateById(Order order);
+
 }
-
-
-
-

@@ -19,90 +19,82 @@
 	textarea{height:100px;font-size:22px;}
 </style>
 </head>
-<body>
+<body><!-- body-start  -->
+
 <h2>修改订单</h2>
 <hr/>
 <form action="orderUpdate" method="POST">
 	<!-- hidden隐藏域,在提交表单时连order.id一起提交 -->
-	<input type="hidden" name="id" value="${ order.id }"/>
+	<input type="hidden" name="id" value="${order.id}"/>
 	<table border="1">
 		<tr>
 			<td width="30%">所属门店</td>
 			<td>
 				<select id="doorId" name="doorId">
-					<!-- 遍历所有门店信息 -->
-					<c:forEach items="${ doorList }" var="door">
-						<option value="${ door.id }"
-							<c:if test="${ order.doorId == door.id }">
-								selected="true"
-							</c:if>
-						>${ door.name }</option>
+					<c:forEach items="${dList}" var="door">
+						<c:if test="${order.doorId==door.id}">
+							<option selected ="selected" value="${door.id}">
+								${door.name}
+							</option>
+						</c:if>
+						<c:if test="${order.doorId!=door.id}">
+							<option value="${door.id}">
+								${door.name}
+							</option>
+						</c:if>
 					</c:forEach>
-					
 				</select>
 			</td>
 		</tr>
 		<tr>
 			<td>订单编号</td>
 			<td>
-				<input type="text" name="orderNo" 
-								value="${ order.orderNo }"/>
+				<input type="text" name="orderNo" value="${order.orderNo}"/>
 			</td>
 		</tr>
 		<tr>
 			<td>订单类型</td>
 			<td>
-				<input type="text" name="orderType" 
-								value="${ order.orderType }"/>
+				<input type="text" name="orderType" value="${order.orderType}"/>
 			</td>
 		</tr>
 		<tr>
 			<td>用餐人数</td>
 			<td>
-				<input type="text" name="pnum"
-								value="${ order.pnum }"/>
+				<input type="text" name="pnum" value="${order.pnum}"/>
 			</td>
 		</tr>
 		<tr>
 			<td>收银员</td>
 			<td>
-				<input type="text" name="cashier"
-								value="${ order.cashier }"/>
+				<input type="text" name="cashier" value="${order.cashier}"/>
 			</td>
 		</tr>
 		<tr>
 			<td>下单时间</td>
 			<td>
-				<input type="text" name="orderTime" 
-						value='<fmt:formatDate 
-					value="${ order.orderTime }"
-					pattern="yyyy/MM/dd HH:mm:ss"/>'/>
-					
-			</td>
+				<input type="text" name="orderTime" value='<fmt:formatDate value="${ order.orderTime }" pattern="yyyy/MM/dd HH:mm:ss"/>' />
+
+				</td>
 		</tr>
 		<tr>
 			<td>结账时间</td>
 			<td>
-				<input type="text" name="orderTime" 
-						value='<fmt:formatDate 
-					value="${ order.payTime }"
-					pattern="yyyy/MM/dd HH:mm:ss"/>'/>
+				<input type="text" name="orderTime" value='<fmt:formatDate value="${ order.payTime }" pattern="yyyy/MM/dd HH:mm:ss"/>'/>
 					
 			</td>
 		</tr>
 		<tr>
 			<td>支付方式</td>
 			<td>
-				<input type="text" name="payType"
-						value="${ order.payType }"/>
+				<input type="text" name="payType" value="${order.payType}"/>
 				
 			</td>
 		</tr>
 		<tr>
 			<td>支付金额</td>
 			<td>
-				<input type="text" name="price"
-						value="${ order.price }"/>
+				<input type="text" name="price" value="${order.price}"/>
 			</td>
 		</tr>
 		<tr>
@@ -112,7 +104,8 @@
 		</tr>
 	</table>
 </form>
-</body>
+
+</body><!-- body-end  -->
 </html>
 
 

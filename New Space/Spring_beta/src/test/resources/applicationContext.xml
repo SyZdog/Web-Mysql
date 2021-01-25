@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- 将EmpService接口的实现类的实例交给spring创建 -->
+	<bean id="empService" class="com.tedu.service.EmpServiceImpl"></bean>
+	<!-- 将EmpDao接口的实现类的实例交给spring创建 -->
+	<bean id="empDao" class="com.tedu.dao.EmpDaoImpl"></bean>
+	<!-- 将User类交给spring创建 
+	<bean id="user" class="com.tedu.pojo.User"></bean>-->
+	<!-- 声明User类的bean实例 -->
+	<bean id="user" class="com.tedu.pojo.User">
+		<property name="name" value="韩少云"></property>
+		<property name="age" value="20"></property>
+	</bean>
+</beans>
